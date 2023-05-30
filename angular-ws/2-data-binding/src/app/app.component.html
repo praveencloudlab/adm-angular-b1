@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>App Component</h1>
+  <hr/>
+
+  <button [disabled]="isDisabled" class="btn btn-primary">Click Here</button>
+  
+  <br/>
+
+  <input type="checkbox" (change)="f2($event)"/>Hide
+
+  <div [hidden]="isHidden">
+    Sample data 
+  </div>
+
+
+  <br/>
+  <button (click)="f1()">Click Here</button>
+
+  <br/>
+
+  <select (change)="f3($event)">
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+    <option value="purple">Purple</option>
+    <option value="yellow">Yellow</option>
+  </select>
+
+  <div [style]="textColor">
+    <h2>Some text</h2>
+  </div>
+
+  <hr/>
+  <input type="text" (keyup)="f4($event)"/>
+  <h1>{{textData}}</h1>
+
+  <hr/>
+
+  <input type="text"  [(ngModel)]="sampleData" />
+  <h1>{{sampleData}}</h1>
+
+
+
+
+
+</div>

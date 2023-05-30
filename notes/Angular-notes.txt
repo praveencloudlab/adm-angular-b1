@@ -1,0 +1,24 @@
+Angular
+====================
+main.ts => app.module.js => app.component.ts => app.component.html (loads into app-root selector)
+
+
+ng generate component --inline-style --skip-tests  : generates only html and ts files. skils tetsing as well css files
+
+ng generate component --inline-template --inline-style --skip-tests : it generates only ts file by skipping html,css and test
+
+
+Data binding in angular: 4 ways
+======================================
+1.Interpolation 		: {{}}
+2.Property Binding	: [] => ts file to the template
+3.Event binding		: () => template to the ts file
+4.Two-way binding		: [(ngModel)]
+
+
+
+
+
+
+
+
