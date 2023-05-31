@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="alert alert-info text-center">
+    <h1>Component Communications Demo</h1>
+  </div>
+  <hr/>
+
+  <div class="card">
+    <div class="card-header bg-warning">APP Component</div>
+    <div class="card-body">
+      <button (click)="sendMessageToChild('Good Morning')">Good Morning</button>
+      <hr/>
+      <h4>message: {{childMsg}} </h4>
+    </div>
+  </div>
+  <br/>
+  <app-greet (parentMessage)="messageFromChild($event)" [parentMsg]=message></app-greet>
+  
+  </div>
+  
