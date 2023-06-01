@@ -15,7 +15,9 @@ buttonHitsCount() {
   this.hitsCount = this.hitsCount + 1
   this.hitsTotalCount.emit(this.btnLabel)
 }
-
+resetHitsCount() {
+  this.hitsCount = 0;
+}
   
 
 
