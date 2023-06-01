@@ -155,7 +155,8 @@ describe('AppComponent', () => {
   });
 });
 
-### In the above code, we use the describe and it functions provided by Jasmine to define test suites and individual test cases. We set up the component fixture and create an instance of the AppComponent for testing.
+## Explanation of testing code
+In the above code, we use the describe and it functions provided by Jasmine to define test suites and individual test cases. We set up the component fixture and create an instance of the AppComponent for testing.
 
 The test cases cover scenarios such as verifying the creation of the app, incrementing the hit count for a button, resetting the hit count for an individual button, and resetting all hit counts.
 
