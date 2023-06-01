@@ -25,7 +25,7 @@ Contributions to the Counter App are welcome. If you encounter any issues or hav
 
    ```shell
    git clone https://github.com/praveencloudlab/adm-angular-b1.git
-   
+   cd adm-angular-b1/angular-ws/4-counter-app
    npm install
 
 
