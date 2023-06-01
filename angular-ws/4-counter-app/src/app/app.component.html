@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Counter APP</h1> <hr/>
+
+
+
+  <div class="card">
+    <div class="card-header"><h4>Counter APP</h4></div>
+    <div class="card-body">
+      <div  class="text-center">
+        <button (click)="resetAllHits()" class="btn btn-primary">Reset All</button>
+      </div>
+      <div class="card-content">
+        <div class="row">
+        <span *ngFor="let number of numbers" class="col-4 mt-3">
+          <app-buttons-generator (hitsTotalCount)="calculateHitsTotalCount($event)" [btnLabel]="number"></app-buttons-generator>
+        </span>
+      </div>
+      </div>
+    </div>
+
+    <div class="card-footer text-center">
+      <h3>Total Hits Count: {{totalHitsCount>=0?totalHitsCount:0}} </h3>
+    </div>
+    
+  
+  </div>
+
+
+
+
+
+  
+ 
+
+
+</div>
+
+
+

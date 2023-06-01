@@ -1,5 +1,24 @@
 Angular
 ====================
+
+========================================
+Create angular app:
+npm init @angular app-name
+
+to install any other library to the application, 
+	cd app-name
+   npm install bootstrap
+   
+    
+
+run: ng serve --open 
+          or
+     npm start
+========================================
+
+
+
+
 main.ts => app.module.js => app.component.ts => app.component.html (loads into app-root selector)
 
 
@@ -14,6 +33,14 @@ Data binding in angular: 4 ways
 2.Property Binding	: [] => ts file to the template
 3.Event binding		: () => template to the ts file
 4.Two-way binding		: [(ngModel)]
+
+
+Component communications / interations
+=================================================
+Parent to Child => @Input() decarator
+Child to Parent => @Output() decarator with EventEmiter class (custom events)
+
+
 
 
 
