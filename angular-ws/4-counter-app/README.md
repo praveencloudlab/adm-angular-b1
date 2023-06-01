@@ -1,6 +1,34 @@
-# 4CounterApp
+# Counter App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+The Counter App is a simple web application built with Angular that allows you to increment the hit count for each button and displays the total hits count.
+
+# App Information
+The Counter App is a demonstration of a simple counter functionality using Angular. It is built with modern web technologies and follows best practices for Angular development.
+This app serves as a starting point for developers who want to learn or explore Angular concepts such as component interaction, event handling, and data binding.
+
+Feel free to explore the code, make modifications, and use it as a foundation for your own projects.
+
+## Features
+
+- Multiple buttons: Each button represents a counter that can be individually incremented.
+- Total hits count: The app keeps track of the total hits count across all buttons.
+- Reset functionality: You can reset the hit count for individual buttons or all buttons at once.
+
+# Contributing
+Contributions to the Counter App are welcome. If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+
+
+
+## Installation
+
+1. Clone the repository:
+
+   ```shell
+   git clone https://github.com/praveencloudlab/adm-angular-b1.git
+   
+   ```shell
+   npm install
+
 
 ## Development server
 
