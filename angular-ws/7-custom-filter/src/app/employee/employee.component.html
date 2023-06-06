@@ -1,0 +1,29 @@
+<div>
+    
+  
+    <br/>
+    <input [(ngModel)]="searchText" placeholder="Search Name"/>
+    <br/><br/>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Adddress</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let emp of employees | empfilter:searchText">
+        <td>{{emp.id}}</td>
+        <td>{{emp.first_name}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.address}}</td>
+      </tr>
+      </tbody>
+    </table>
+  
+  
+  </div>

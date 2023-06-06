@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 appAppChangeColor>Directives</h1> <hr/>
+  Are you married? <input type="checkbox" (click)="checkStatus($event)"/>
+  <div *ngIf="isVisible">
+    <input type="text" placeholder="number of children"/>
+  </div>
+
+  <hr/>
+
+  <ol>
+      <li *ngFor="let city of cities">
+        {{city}}
+      </li>
+  </ol>
+  <hr/>
+  <select>
+    <option *ngFor="let city of cities">{{city}}</option>
+  </select>
+
+  <hr/>
+  <div>
+    <button *ngFor="let lable of buttons">{{lable}}</button>
+  </div>
+</div>
