@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div>
+    <div formGroupName="price">
       <label>Price</label>
       <input formControlName="price"/>
       <div *ngIf="fc()['price']?.invalid && (fc()['price']?.dirty || fc()['price']?.touched)">
@@ -27,11 +27,11 @@
       </div>
     </div>
 
-    <div>
-      <label>Quantity</label>
-      <input formControlName="quantity"/>
-      <div *ngIf="fc()['quantity']?.invalid && (fc()['quantity']?.dirty || fc()['quantity']?.touched)">
-        <div  *ngIf="fc()['quantity']?.errors?.['required']" class="text-danger">
+    <div formGroupName="stock">
+      <label>Stock</label>
+      <input formControlName="stock"/>
+      <div *ngIf="fc()['stock']?.invalid && (fc()['stock']?.dirty || fc()['stock']?.touched)">
+        <div  *ngIf="fc()['stock']?.errors?.['required']" class="text-danger">
           Product Quantity is Required
       </div>
        
@@ -45,6 +45,18 @@
           Product Description is Required
       </div>
       </div>
+    </div>
+    <div>
+      <label>Select calegory</label>
+      <select formControlName="category" (change)="handleCategoryChange()">
+        <option *ngFor="let cat of categories">{{cat.categoryTitle}}</option>
+      </select>
+    </div>
+    <div>
+      <label>Select Brand</label>
+      <select formControlName="brand">
+        <option *ngFor="let brand of brands" >{{brand.brandTitle}}</option>
+      </select>
     </div>
     <div>
       <button>Save</button>
