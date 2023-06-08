@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import loadCategories from './data';
 import { HttpClient } from '@angular/common/http';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
 
-  baseUrl = "http://localhost:8080/api/products"
 
 isSubmitted = false;
 brands:any;
@@ -35,7 +35,9 @@ handleSubmit() {
   if(this.productForm.valid) {  
   console.log(this.productForm.value);
   // save to database
-  this.http.post(this.baseUrl, this.productForm.value).subscribe(resp=>console.log(resp));
+  this.productService.saveProduct(this.productForm.value).subscribe(resp=>console.log(resp));
+  
+  //this.http.post(this.baseUrl, this.productForm.value).subscribe(resp=>console.log(resp));
   
 
   } else {
@@ -52,7 +54,7 @@ handleSubmit() {
 
 
 
-   constructor(private fb:FormBuilder,private http:HttpClient){
+   constructor(private fb:FormBuilder,private http:HttpClient,private productService:ProductService){
    // this.categories=loadCategories();
     //console.log(this.categories);
     this.productForm=this.fb.group(
@@ -73,8 +75,6 @@ handleSubmit() {
     )
    }
   ngOnInit(): void {
-    this.http.get(`${this.baseUrl}/categories`).subscribe(data => this.categories=data)
-
-
+    this.productService.getCategories().subscribe(data=>this.categories=data)
   }
 }
