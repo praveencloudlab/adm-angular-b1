@@ -15,6 +15,19 @@ public class Category {
     @JoinTable(name="category_brands",joinColumns = {@JoinColumn(name = "category_id")},inverseJoinColumns = {@JoinColumn(name="brand_id")})
     private List<Brand> brands=new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name = "category_info",joinColumns = @JoinColumn(name="category_id"),inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<Product> categoryInfo=new ArrayList<>();
+
+
+    public List<Product> getCategoryInfo() {
+        return categoryInfo;
+    }
+
+    public void setCategoryInfo(List<Product> categoryInfo) {
+        this.categoryInfo = categoryInfo;
+    }
+
     public int getCategoryId() {
         return categoryId;
     }

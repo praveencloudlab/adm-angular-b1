@@ -46,16 +46,37 @@
       </div>
       </div>
     </div>
+
+    <div>
+      <label>Keywords</label>
+      <textarea formControlName="keywords"></textarea>
+      <div *ngIf="fc()['keywords']?.invalid && (fc()['keywords']?.dirty || fc()['keywords']?.touched)">
+        <div  *ngIf="fc()['keywords']?.errors?.['required']" class="text-danger">
+           Keywords is Required
+      </div>
+      </div>
+    </div>
+
+
+    <div>
+      <label>Rating</label>
+      <input formControlName="rating"/>
+      <div *ngIf="fc()['rating']?.invalid && (fc()['rating']?.dirty || fc()['rating']?.touched)">
+        <div  *ngIf="fc()['rating']?.errors?.['required']" class="text-danger">
+            Product Rating is Required
+        </div>
+      </div>
+    </div>
     <div>
       <label>Select calegory</label>
-      <select formControlName="category" (change)="handleCategoryChange()">
-        <option *ngFor="let cat of categories">{{cat.categoryTitle}}</option>
+      <select formControlName="categoryId" (change)="handleCategoryChange()">
+        <option *ngFor="let cat of categories" [value]="cat.categoryId" >{{cat.categoryTitle}}</option>
       </select>
     </div>
     <div>
       <label>Select Brand</label>
-      <select formControlName="brand">
-        <option *ngFor="let brand of brands" >{{brand.brandTitle}}</option>
+      <select formControlName="brandId">
+        <option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandTitle}}</option>
       </select>
     </div>
     <div>

@@ -2,6 +2,7 @@ package com.cts.ecart.resource;
 
 import java.util.List;
 
+import com.cts.ecart.com.cts.ecart.dto.ProductDTO;
 import com.cts.ecart.entity.Brand;
 import com.cts.ecart.entity.Category;
 import com.cts.ecart.repository.BrandRepository;
@@ -35,13 +36,38 @@ public class ProductApiResource {
 	}
 
 
-	@PostMapping
-	public Product saveProduct(@RequestBody Product product){
+	@PostMapping()
+	public Product saveProduct(@RequestBody ProductDTO productDTO){
+
+		// 1 save product
+
+		// 4 map brand to category (already exists)
+		Product prod=new Product();
+		prod.setDescription(productDTO.getDescription());
+		prod.setProductTitle(productDTO.getProductTitle());
+		prod.setKeywords(productDTO.getKeywords());
+		prod.setPrice(productDTO.getPrice());
+		prod.setStock(productDTO.getStock());
+		prod.setRating(productDTO.getRating());
+
+		int brandId= productDTO.getBrandId();
+		int categoryId= productDTO.getCategoryId();
 
 
 
+		Product product=productRepository.save(prod);
 
-		return productRepository.save(product);
+		Brand brand=brandRepo.findById(brandId).orElse(null);
+		Category category=catRepo.findById(categoryId).orElse(null);
+
+		// 2 map product to brand
+		brand.getBrandsInfo().add(product);
+		category.getCategoryInfo().add(product);
+
+		brandRepo.save(brand);
+		catRepo.save(category);
+		// done
+		return product;
 	}
 
 	@GetMapping("categories/{categoryId}")

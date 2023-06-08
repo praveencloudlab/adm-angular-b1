@@ -1,8 +1,10 @@
 package com.cts.ecart.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity(name = "brands")
 public class Brand {
 
@@ -10,6 +12,18 @@ public class Brand {
     @GeneratedValue
     private int brandId;
     private String brandTitle;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name = "brand_info",joinColumns = @JoinColumn(name="brand_id"),inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<Product> brandsInfo=new ArrayList<>();
+
+    public List<Product> getBrandsInfo() {
+        return brandsInfo;
+    }
+
+    public void setBrandsInfo(List<Product> brandsInfo) {
+        this.brandsInfo = brandsInfo;
+    }
 
     public int getBrandId() {
         return brandId;
